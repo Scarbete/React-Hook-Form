@@ -1,0 +1,58 @@
+
+@mixin createFormElement($borderColor, $focusBorderColor) {
+    width: 100%;
+    padding: 0 10px;
+    border: 1px solid $borderColor;
+    border-radius: 4px;
+    height: 30px;
+    background: none;
+
+    &:focus {
+        border: 1px solid $focusBorderColor;
+    }
+
+    &.error {
+        border: 1px solid red;
+
+        &::placeholder {
+            color: red;
+        }
+    }
+}
+
+.reactHookForm {
+    margin: 200px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 300px;
+    padding: 20px;
+    background: lightgray;
+    border-radius: 10px;
+
+    label {
+        width: 100%;
+
+        span {
+            color: red;
+        }
+
+        .formInput {
+            @include createFormElement(black, blue);
+        }
+    }
+
+    button {
+        cursor: pointer;
+        transition: 250ms;
+        @include createFormElement(black, blue);
+
+        &:hover {
+            background: black;
+            color: white;
+            transition: 250ms;
+        }
+    }
+}

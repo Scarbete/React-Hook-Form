@@ -1,0 +1,1 @@
+export {default as MainPageWidget} from './view/MainPageWidget'

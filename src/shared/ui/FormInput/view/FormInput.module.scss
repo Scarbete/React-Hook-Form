@@ -1,0 +1,27 @@
+
+@mixin createFormElement($borderColor, $focusBorderColor) {
+    width: 100%;
+    padding: 0 10px;
+    border: 1px solid $borderColor;
+    border-radius: 4px;
+    height: 30px;
+    background: none;
+
+    &:focus {
+        border: 1px solid $focusBorderColor;
+    }
+
+    &.error {
+        border: 1px solid red;
+
+        &::placeholder {
+            color: red;
+        }
+    }
+}
+
+.formLabel {
+    .formInput {
+        @include createFormElement(black, blue)
+    }
+}
